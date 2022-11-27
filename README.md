@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Вы человек творческий, вы создаете какие-то крутые вещи и хотите, чтобы вашей продукцией пользовались другие люди? Мы уверены, что наш онлайн сервис вам поможет!
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Данный сервис предоставляет владльцам магазинов получать предложения по продаже товаров от заинтересованных людей. Часто это могут быть индивидуальные предприниматели, которые создают изделия ручной работы.
