@@ -1,0 +1,27 @@
+body {
+    color: #DB5239;
+    text-align: center;
+    font: 24px Tahoma, sans-serif;
+    background-color: #F9DBBD;
+    vertical-align: center;
+    position	: absolute;
+    top		: 50%;
+    height		: 240px;
+    margin-top	: -120px; /* минус от половины высоты */
+
+}
+
+img {
+    width: 50%;
+    height: 100%;
+    margin: 20px;
+}
+
+button {
+    color: #DB5239;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    font: 20px Tahoma, sans-serif;
+}
