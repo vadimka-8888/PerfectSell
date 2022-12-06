@@ -1,0 +1,14 @@
+<h2>Добавление магазина</h2>
+<%=form_for :shop, url:shops_path do |f| %>
+<p>
+  Название<br>
+  <%= f.text_field :title %>
+</p>
+  <p>
+    Почта<br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<%end %>

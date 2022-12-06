@@ -1,12 +1,6 @@
 @import url("fontawesome-all.min.css");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic");
 
-/*
-	Dopetrope by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
 pre, a, abbr, acronym, address, big, cite,
@@ -1530,10 +1524,16 @@ input, select, textarea {
 		margin-bottom: 2.5em;
 	}
 
+	#content1{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-content: space-between;
+		padding: 20px;
+	}
 		section > :last-child, section:last-child, article > :last-child, article:last-child {
 			margin-bottom: 0;
 		}
-
 	header {
 		margin: 0 0 1.5em 0;
 	}
@@ -1569,15 +1569,14 @@ input, select, textarea {
 /* Box */
 
 	.box {
+		box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 		border-radius: 20px;
 		height: 650px;
 		background: #ffffff;
-		border-bottom: solid 1px #ccc;
+		border-bottom: solid 2px #ccc;
 		padding: 2.75em 1.75em 2.75em 1.75em;
 	}
 		.box .image.featured {
-			border-top-left-radius: 20px;
-			border-top-right-radius: 20px;
 			position: relative;
 			width: auto;
 			left: 1.75em;
@@ -1611,6 +1610,7 @@ input, select, textarea {
 	input[type="reset"],
 	button,
 	.button {
+		margin: 20px;
 		vertical-align: bottom;
 		-webkit-appearance: none;
 		display: inline-block;
@@ -1701,8 +1701,13 @@ input, select, textarea {
 		display: inline-block;
 		outline: 0;
 	}
-
+	#img_shop img{
+		border-radius: 20px;
+	}
 		.image img {
+
+			border-top-right-radius: 20px;
+			border-top-left-radius: 20px;
 			display: block;
 			width: 100%;
 		}
@@ -1718,6 +1723,7 @@ input, select, textarea {
 			}
 
 		.image.featured {
+			border-radius: 30px;
 			display: block;
 			width: 100%;
 			margin: 0 0 2em 0;
@@ -2109,6 +2115,7 @@ input, select, textarea {
 				}
 
 				#nav > ul > li > a {
+					font-size: 20px;
 					border-radius: 5px;
 					color: #5d5d5d;
 					text-decoration: none;
@@ -2121,6 +2128,7 @@ input, select, textarea {
 				}
 
 				#nav > ul > li:hover > a, #nav > ul > li.active > a {
+					font-size: 20px;
 					background: #f3f3f3;
 				}
 
@@ -2130,6 +2138,7 @@ input, select, textarea {
 					font-weight: 700;
 				}
 				#nav > ul > li.current > a {
+				font-size: 20px;
 				background: #d52349;
 				color: #fff !important;
 				font-weight: 700;
@@ -2282,6 +2291,7 @@ input, select, textarea {
 		background: #f7f7f7 url("images/bg02.png");
 		padding: 4em 0 4em 0;
 	}
+
 
 		#main:before {
 			content: '';
@@ -2733,7 +2743,6 @@ input, select, textarea {
 			}
 
 		/* Button */
-
 			input[type="button"].large,
 			input[type="submit"].large,
 			input[type="reset"].large,
@@ -2775,11 +2784,13 @@ input, select, textarea {
 		/* Box */
 
 			.box {
+				border-radius: 20px;
 				padding: 25px 15px 20px 15px;
 				height: 1000px;
 			}
 
 				.box .image.featured {
+					border-radius: 30px;
 					left: 15px;
 					top: 15px;
 					margin: -40px 0 40px -30px;
@@ -2921,5 +2932,4 @@ input, select, textarea {
 			#footer {
 				padding: 40px 0 20px 0;
 			}
-
 	}
