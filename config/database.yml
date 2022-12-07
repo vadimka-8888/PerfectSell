@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: perfectsell_development
+  database: Perfect_Sell_DB
   pool: 5
   host: localhost
   username: postgres
@@ -10,7 +10,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: perfectsell_test
+  database: Perfect_Sell_DB_Test
   pool: 5
   username: postgres
   password: NinaZilli8888
