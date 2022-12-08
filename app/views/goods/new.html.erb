@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Goods</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <%= stylesheet_link_tag 'main.css' %>
+</head>
+<body class="goods is-preload">
+<section id="page-wrapper">
+  <!-- Header -->
+  <section id="header">
+    <!-- Logo -->
+    <h1><a href="/shops">Perfect Sell</a></h1>
+    <!-- Nav -->
+    <nav id="nav">
+      <ul>
+        <li class="other"><a href="/shops">Магазины</a></li>
+        <li class="current"><a href="/goods">Предложенные товары</a></li>
+        <li class="other"><a href="/shops">Аккаунт</a></li>
+      </ul>
+    </nav>
+    <!-- Main -->
+    <section id="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <!-- Goods -->
+            <section>
+              <div id="form">
+                <h2>Добавление товара</h2>
+                <%=form_for :good, url:goods_path do |f| %>
+                  <p>
+                    Название<br>
+                    <%= f.text_field :title %>
+                  </p>
+                  <p>
+                    Почта<br>
+                    <%= f.text_field :email %>
+                  </p>
+                  <p>
+                    Информация о товаре<br>
+                    <%= f.text_area :info %>
+                  </p>
+                  <p>
+                    Стоимость<br>
+                    <%= f.text_field :info %>
+                  </p>
+                  <p>
+                    Тут будет штучка для загрузки фото<br>
+                    <%= f.text_field :image %>
+                  </p>
+                  <p>
+                    <%= submit_tag 'Добавить' %>
+                  </p>
+                  <a href="/goods" class="button2">Отмена</a>
+                <%end %>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</section>
+</body>
+</html>

@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/goods', to: 'goods#goods'
   get '/page_shop', to: 'page_shop#page_shop'
   resources :shops
-
+  resources :goods
 end
