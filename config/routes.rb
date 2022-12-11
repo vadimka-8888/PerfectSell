@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get '/mainpage', to: 'mainpage#mainpage'
   get '/goods', to: 'goods#goods'
-
+  get '/test', to: 'test#test'
 end

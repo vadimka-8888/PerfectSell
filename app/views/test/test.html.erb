@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Тестовая страница</h3>
+    <p>Пользователи сайта:</p>
+    <%- @all_people.each do |person| %>
+        <li><%= "пользователь: #{person.full_name}" %></li>
+    <% end %>
+    <p>Все предложения на сайте:</p>
+    <%- @all_offers.each do |off| %>
+        <li><%= "товар: #{off.name}, продаётся по цене #{off.price} за #{off.measure}" %></li>
+    <% end %>
+    <p>Доступные магазины:</p>
+    <%- @all_stores.each do |store| %>
+        <li>
+          <%= "#{store.name} находится по адресу #{store.address}. " %>
+          <%= store.description %>
+        </li>
+    <% end %>
+
+</body>
