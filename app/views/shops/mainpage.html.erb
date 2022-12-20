@@ -5,7 +5,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<%= stylesheet_link_tag 'main.css' %>
-
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	</head>
 	<body class="homepage is-preload">
 		<section id="page-wrapper">
@@ -15,33 +15,24 @@
 
 					<!-- Logo -->
 						<h1><a href="/mainpage">Perfect Sell</a></h1>
-
-					<nav id="nav">
-						<ul>
-							<li>
-
-								<ul>
-									<li><a href="#">Lorem ipsum dolor</a></li>
-									<li><a href="#">Magna phasellus</a></li>
-									<li><a href="#">Etiam dolore nisl</a></li>
-									<li>
-										<a href="#">Phasellus consequat</a>
-										<ul>
-											<li><a href="#">Magna phasellus</a></li>
-											<li><a href="#">Etiam dolore nisl</a></li>
-											<li><a href="#">Veroeros feugiat</a></li>
-											<li><a href="#">Nisl sed aliquam</a></li>
-											<li><a href="#">Dolore adipiscing</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Veroeros feugiat</a></li>
-								</ul>
-							</li>
-							<li class="current"><a href="/shops">Магазины</a></li>
-							<li class="other"><a href="/goods">Предложенные товары</a></li>
-							<li class="other"><a href="/page_shop">Аккаунт</a></li>
-						</ul>
-					</nav>
+					<script>
+						function myFunction() {
+							var x = document.getElementById("myTopnav");
+							if (x.className === "topnav") {
+								x.className += " responsive";
+							} else {
+								x.className = "topnav";
+							}
+						}
+					</script>
+					<div class="topnav" id="myTopnav">
+						<a href="/shops" class="active">Магазины</a>
+						<a href="/goods">Предложенные товары</a>
+						<a href="/page_shop">Аккаунт</a>
+						<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+							<i class="fa fa-bars"></i>
+						</a>
+					</div>
 			<!-- Main -->
 				<section id="main">
 					<div class="container">
