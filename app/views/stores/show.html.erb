@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -9,13 +10,10 @@
 </head>
 <body class="goods is-preload">
 <section id="page-wrapper">
-
   <!-- Header -->
   <section id="header">
-
     <!-- Logo -->
-    <h1><a href="/shops">Perfect Sell</a></h1>
-
+    <h1><a href="/mainpage">Perfect Sell</a></h1>
     <!-- Nav -->
     <script>
         function myFunction() {
@@ -28,7 +26,7 @@
         }
     </script>
     <div class="topnav" id="myTopnav">
-      <a href="/stores" class="active">Магазины</a>
+      <a href="/shops" class="active">Магазины</a>
       <a href="/goods">Предложенные товары</a>
       <a href="/page_shop">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
@@ -43,29 +41,28 @@
           <div class="col-12">
             <!-- Goods -->
             <section>
-              <header class="major">
-                <div class="container3">
-                  <div><h2>Предложенные товары</h2></div>
-                  <a href="/goods/new" class="button">Добавить товар</a>
+              <div class="container3">
+                <div><h1><%=@store.name %></h1></div>
+              </div>
+              <div id=container3>
+                <div id="container3">
+                  <h2>Данные о магазине</h2>
+                  <p class="major"><%=@store.description %></p>
+                  <h2>Контакты</h2>
+                  <p><%=@store.store_email %></p>
+                  <h2>Товары на рассмотрении</h2>
+                  <ul class="actions">
+                    <li><a href="#" class="button">Показать товары</a></li>
+                  </ul>
+                  <h2>Принятые товары</h2>
+                  <ul class="actions">
+                    <li><a href="#" class="button">Показать товары</a></li>
+                  </ul>
                 </div>
-              </header>
-              <div class="row">
-                <div class="col-4 col-6-medium col-12-small">
-                  <%- @all_goods.each do |offer| %>
-                  <section class="box">
-                    <a href="#" class="image featured"><img src="/assets/shop3.jpg" alt="" /></a>
-                    <header>
-                      <h3><%=offer.name %></h3>
-                    </header>
-                    <h4>Стоимость</h4>
-                    <p><%=offer.price %> руб.</p>
-                    <footer>
-                      <ul class="actions">
-                        <li><a href="#" class="button alt">Подробнее</a></li>
-                      </ul>
-                    </footer>
-                  </section>
-                  <% end %>
+                <div class="image">
+                  <div id="img_shop">
+                    <img src="/assets/shop3.jpg" alt="" />
+                  </div>
                 </div>
               </div>
             </section>

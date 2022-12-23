@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get '/page_shop', to: 'page_shop#page_shop'
   resources :shops
   resources :goods
+  resources :stores
 end

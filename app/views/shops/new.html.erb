@@ -44,19 +44,27 @@
                   <%=form_for :shop, url:shops_path do |f| %>
                     <p>
                       Название<br>
-                      <%= f.text_field :title %>
+                      <%= f.text_field :name %>
+                    </p>
+                    <p>
+                      Адрес<br>
+                      <%= f.text_field :address %>
                     </p>
                     <p>
                       Почта<br>
-                      <%= f.text_field :email %>
+                      <%= f.text_field :store_email %>
+                    </p>
+                    <p>
+                      Пароль<br>
+                      <%= f.text_field :store_password %>
                     </p>
                     <p>
                       Информация о магазине<br>
-                      <%= f.text_area :info %>
+                      <%= f.text_area :description %>
                     </p>
                     <p>
                       Тут будет штучка для загрузки фото<br>
-                      <%= f.text_field :image %>
+                      <%= f.text_field :photo %>
                     </p>
                     <p>
                       <%= submit_tag 'Добавить' %>
