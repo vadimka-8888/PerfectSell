@@ -12,7 +12,7 @@
   <!-- Header -->
   <section id="header">
     <!-- Logo -->
-    <h1><a href="/stores">Perfect Sell</a></h1>
+    <h1><a href="/shops">Perfect Sell</a></h1>
     <!-- Nav -->
     <script>
         function myFunction() {
@@ -25,8 +25,8 @@
         }
     </script>
     <div class="topnav" id="myTopnav">
-      <a href="/stores" class="active">Магазины</a>
-      <a href="/offers">Предложенные товары</a>
+      <a href="/stores">Магазины</a>
+      <a href="/offers" class="active">Предложенные товары</a>
       <a href="/page_shop">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -40,27 +40,28 @@
             <!-- Goods -->
             <section>
               <div id="form">
-                <h2>Добавление магазина</h2>
-                <%=form_for :store, url:stores_path do |f| %>
+                <h2>Добавление товара</h2>
+                <%=form_for :offer, url:offers_path do |f| %>
                   <p>
                     Название<br>
                     <%= f.text_field :name %>
                   </p>
                   <p>
-                    Адрес<br>
-                    <%= f.text_field :address %>
+                    Единица измерения товара<br>
+                    <%= f.text_field :measure %>
                   </p>
                   <p>
-                    Почта<br>
-                    <%= f.text_field :store_email %>
+                    Стоимость за единицу<br>
+                    <%= f.text_field :price %>
                   </p>
                   <p>
-                    Пароль<br>
-                    <%= f.text_field :store_password %>
+                    Описание<br>
+                    <%= f.text_field :description %>
                   </p>
                   <p>
-                    Информация о магазине<br>
-                    <%= f.text_area :description %>
+                    Доступен ли товар для продажи<br>
+                    <%= f.check_box :is_active %><br />
+                    <%= radio_button_tag(:age, "child") %>
                   </p>
                   <p>
                     Тут будет штучка для загрузки фото<br>
