@@ -5,7 +5,7 @@ class StoresController < ApplicationController
   end
 
   def new
-
+    @store = Store.new
   end
 
   def show
@@ -15,7 +15,7 @@ class StoresController < ApplicationController
   def create
     @store = Store.create(store_params)
     @store.save
-    redirect_to @store
+    redirect_to stores, notice: 'Вы успешно зарегистрировались'
   end
 
   private def store_params

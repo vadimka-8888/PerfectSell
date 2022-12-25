@@ -25,9 +25,9 @@
         }
     </script>
     <div class="topnav" id="myTopnav">
-      <a href="/stores" class="active">Магазины</a>
+      <a href="/stores">Магазины</a>
       <a href="/offers">Предложенные товары</a>
-      <a href="/account">Аккаунт</a>
+      <a href="/account"class="active">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
@@ -40,34 +40,24 @@
             <!-- Goods -->
             <section>
               <div id="form">
+                <p id="notice"><%= notice %></p>
                 <h2>Добавление магазина</h2>
-                <%=form_for :store, url:stores_path do |f| %>
+                <%=form_for :proposer, url:proposers_path do |f| %>
                   <p>
-                    Название<br>
-                    <%= f.text_field :name %>
-                  </p>
-                  <p>
-                    Адрес<br>
-                    <%= f.text_field :address %>
+                    ФИО<br>
+                    <%= f.text_field :full_name %>
                   </p>
                   <p>
                     Почта<br>
-                    <%= f.text_field :store_email %>
+                    <%= f.text_field :email %>
                   </p>
                   <p>
                     Пароль<br>
-                    <%= f.text_field :store_password %>
+                    <%= f.text_field :password %>
                   </p>
+
                   <p>
-                    Информация о магазине<br>
-                    <%= f.text_area :description %>
-                  </p>
-                  <p>
-                    Тут будет штучка для загрузки фото<br>
-                    <%= f.text_field :photo %>
-                  </p>
-                  <p>
-                    <%= submit_tag 'Добавить' %>
+                    <%= submit_tag 'Зарегистрироваться' %>
                   </p>
                   <a href="/stores" class="button2">Отмена</a>
                 <%end %>

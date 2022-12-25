@@ -4,4 +4,5 @@ class Store < ApplicationRecord
 
   validates :name, :store_email, :store_password, presence: true
   validates_uniqueness_of :store_password
+
 end

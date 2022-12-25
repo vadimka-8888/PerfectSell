@@ -26,9 +26,9 @@
         }
     </script>
     <div class="topnav" id="myTopnav">
-      <a href="/stores" class="active">Магазины</a>
-      <a href="/offers">Предложенные товары</a>
-      <a href="/account">Аккаунт</a>
+      <a href="/stores">Магазины</a>
+      <a href="/offers" >Предложенные товары</a>
+      <a href="/page_shop "class="active">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
@@ -39,39 +39,36 @@
         <div class="row">
           <div class="col-12">
             <!-- Shops -->
-            <%if flash[:notice].present? %>
-                <p id="notice"><%= flash[:notice] %></p>
-            <%elsif flash[:alert].present? %>
-              <p id="notice"><%= flash[:alert] %></p>
-            <%end %>
             <section>
               <header class="major">
-                <div class="container3">
-                  <div><h2>Представленные площадки</h2></div>
-                  <a href="/stores/new" class="button">Добавить магазин</a>
-                </div>
 
               </header>
-              <div class="row">
-                <%- @all_stores.each do |store| %>
-                <div class="col-4 col-6-medium col-12-small">
-
-                    <section class="box">
-                      <a href="#" class="image featured"><img src="/assets/shop3.jpg" alt="" /></a>
-                      <header>
-                        <h3><%=store.name %></h3>
-                      </header>
-                      <h4>Информация</h4>
-                      <p><%=store.description %></p>
-                      <footer>
-                        <ul class="actions">
-                          <li><a href="stores/<%=store.id%>" class="button alt">Подробнее</a></li>
-                        </ul>
-                      </footer>
-                    </section>
-                </div>
-                  <% end %>
+              <%if current_user.present? %>
+                <header class="major">
+                  <h2>Имя пользователя: </h2>
+                  <h2><%= "#{current_user.full_name}" %></h2>
+                </header>
+              <%else %>
+              <header class="major">
+              <div class="container3">
+                <div><h2>Вход на сайт</h2></div>
+                <a href="/session/new" class="button">Вход</a>
+                <a href="/proposers/sign_up" class="button">Регистрация</a>
               </div>
+              </header>
+              <header class="major">
+                <div class="container3">
+                  <div><h2>Регистрация представителя магазина</h2></div>
+                  <a href="/stores/new" class="button">Регистрация</a>
+                </div>
+              </header>
+              <header class="major">
+                <div class="container3">
+                  <div><h2>Регистрация представителя товара</h2></div>
+                  <a href="/proposers/new" class="button">Регистрация</a>
+                </div>
+              </header>
+                <%end %>
             </section>
           </div>
         </div>
