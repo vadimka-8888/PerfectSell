@@ -43,7 +43,11 @@
               <header class="major">
                 <div class="container3">
                   <div><h2>Представленные товары</h2></div>
-                  <a href="/offers/new" class="button">Добавить товар</a>
+                  <%if current_user.present? %>
+                    <%if session[:role]=="proposer" %>
+                    <a href="/offers/new" class="button">Добавить товар</a>
+                    <%end %>
+                  <%end %>
                 </div>
 
               </header>

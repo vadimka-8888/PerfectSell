@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :offers
   resources :account
   resources :proposers
-  resource :session, only: %i[new create]
+  resource :session, only: %i[new create destroy]
 
 end

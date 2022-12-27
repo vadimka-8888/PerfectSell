@@ -28,7 +28,7 @@
     <div class="topnav" id="myTopnav">
       <a href="/stores">Магазины</a>
       <a href="/offers" >Предложенные товары</a>
-      <a href="/page_shop "class="active">Аккаунт</a>
+      <a href="/account "class="active">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
@@ -40,20 +40,17 @@
           <div class="col-12">
             <!-- Shops -->
             <section>
-              <header class="major">
-
-              </header>
               <%if current_user.present? %>
                 <header class="major">
                   <h2>Имя пользователя: </h2>
                   <h2><%= "#{current_user.full_name}" %></h2>
+                  <%=button_to 'Выйти', session_path, method: :delete %>
                 </header>
               <%else %>
               <header class="major">
               <div class="container3">
                 <div><h2>Вход на сайт</h2></div>
                 <a href="/session/new" class="button">Вход</a>
-                <a href="/proposers/sign_up" class="button">Регистрация</a>
               </div>
               </header>
               <header class="major">
