@@ -1,11 +1,11 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: hhvhkmnb #Perfect_Sell_DB
+  database: Perfect_Sell_DB #hhvhkmnb
   pool: 5
-  host: arjuna.db.elephantsql.com #localhost
-  username: hhvhkmnb #postgres
-  password: srfCiRDPkvk1T9SwPJG5KYQ3U7fTmBwg #NinaZilli8888
+  host: localhost #arjuna.db.elephantsql.com
+  username: postgres #hhvhkmnb
+  password: NinaZilli8888 #srfCiRDPkvk1T9SwPJG5KYQ3U7fTmBwg
 
 test:
   adapter: postgresql
