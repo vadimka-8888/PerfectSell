@@ -44,8 +44,36 @@
                 <header class="major">
                   <h2>Имя пользователя: </h2>
                   <h2><%= "#{current_user.full_name}" %></h2>
-                  <%=button_to 'Выйти', session_path, method: :delete %>
+
                 </header>
+                <h2>Тип аккаунта: </h2>
+                <h2><%= "#{session[:role]}" %></h2>
+                <%=button_to 'Выйти', session_path, method: :delete %>
+                <header class="major">
+                  <div class="container3">
+                    <div><h2>Мои товары</h2></div>
+                  </div>
+                </header>
+                <div class="row">
+                  <%- @offers.each do |offer| %>
+                    <div class="col-4 col-6-medium col-12-small">
+
+                      <section class="box">
+                        <a href="#" class="image featured"><img src="/assets/shop3.jpg" alt="" /></a>
+                        <header>
+                          <h3><%=offer.name %></h3>
+                        </header>
+                        <h4>Информация</h4>
+                        <p><%=offer.description %></p>
+                        <footer>
+                          <ul class="actions">
+                            <li><a href="offers/<%=offer.id%>" class="button alt">Подробнее</a></li>
+                          </ul>
+                        </footer>
+                      </section>
+                    </div>
+                  <% end %>
+                </div>
               <%else %>
               <header class="major">
               <div class="container3">

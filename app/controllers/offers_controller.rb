@@ -20,6 +20,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.create(offer_params)
+    @offer.proposer_id=current_user.id
     @offer.save
     redirect_to @offer
   end
