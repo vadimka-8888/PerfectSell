@@ -24,10 +24,26 @@
           border: #F9DBBD ridge 2px;
           text-align: center;
           text-decoration: none;
-          padding-top: 20px;
+          padding-top: 10px;
       }
       ul.panel a:hover {
           background-color: moccasin;
+      }
+      details sumary::-webkit-details-marker {
+          display: none;
+      }
+      details > summary {
+          list-style: none;
+      }
+      details summary:before {
+          content: '\7e';
+          margin-right: 3px;
+          margin-left: 3px;
+      }
+      details[open] summary:before {
+          content: '\2d';
+          margin-right: 3px;
+          margin-left: 3px;
       }
       #add_store {
           margin-top: 20px;
