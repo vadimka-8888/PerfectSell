@@ -13,10 +13,12 @@ class SessionsController < ApplicationController
     if proposer.present? and proposer.password==user_params[:password]
       session[:user_id] = proposer.id
       session[:role] = "proposer"
+      session[:email] = user_params[:email]
       redirect_to '/stores', notice: 'Вы вошли на сайт как продавец товара!'
-    elsif store.present? and store.password==user_params[:password]
+    elsif store.present? and store.store_password==user_params[:password]
       session[:user_id] = store.id
       session[:role] = "store"
+      session[:email] = user_params[:email]
       redirect_to '/stores', notice: 'Вы вошли на сайт как представитель магазина!'
     else
       flash[:alert] = 'Неправильные данные'

@@ -27,7 +27,7 @@
     <div class="topnav" id="myTopnav">
       <a href="/stores">Магазины</a>
       <a href="/offers"class="active">Предложенные товары</a>
-      <a href="/page_shop">Аккаунт</a>
+      <a href="/account">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
@@ -49,14 +49,37 @@
                   <p class="major"><%=@offer.description %></p>
                   <h2>Стоимость</h2>
                   <p><%=@offer.price %></p>
-                  <h2>Товары на рассмотрении</h2>
+                  <%if session[:role]=="store" %>
+                    <% unless current_user.bargains.find_by(offer: @offer).present? %>
                   <ul class="actions">
-                    <li><a href="#" class="button">Показать товары</a></li>
+                          <li><a href="/offers/<%= @offer.id  %>/bargains/new" class="button">Взять товар на рассмотрение</a>
+                          </li>
                   </ul>
-                  <h2>Принятые товары</h2>
-                  <ul class="actions">
-                    <li><a href="#" class="button">Показать товары</a></li>
-                  </ul>
+                      <%else if current_user.bargains.find_by(offer: @offer).status="Considering"%>
+                        <h2>Товар на рассмотрении</h2>
+                        <ul class="actions">
+                          <li><a href="offers/<%= @offer.id  %>/edit" class="button">Принять товар в магазин</a>
+                          </li>
+                        </ul>
+                        <ul class="actions">
+
+                          <%= button_to 'Удалить из рассмотрения', [@bargain.offer, @bargain],
+                                      method: :delete,
+                                      data: { confirm: 'Вы уверены?' } %>
+                          </li>
+                        </ul>
+                        <%else %>
+                        <h2>Товар принят!</h2>
+                        <%end %>
+                  <% end %>
+                  <%elsif session[:role]=="proposer" %>
+                    <%if @is_belongs %>
+                      <ul class="actions">
+                        <li><a href="#" class="button">Редактировать информацию</a></li>
+                      </ul>
+                    <%end %>
+
+                  <%end %>
                 </div>
                 <div class="image">
                   <div id="img_shop">

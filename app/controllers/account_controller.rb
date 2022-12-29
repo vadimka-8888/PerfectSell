@@ -1,5 +1,9 @@
 class AccountController < ApplicationController
   def index
-    @offers = Offer.select{|o| o.proposer_id==current_user.id}
+    if current_user.present?
+      if session[:role]=="proposer"
+        @offers = Offer.select{|o| o.proposer_id==current_user.id}
+      end
+    end
   end
 end
