@@ -6,6 +6,17 @@ ActiveAdmin.register Proposer do
     column :full_name
     column :email
     column :additional_information
+    actions
+  end
+
+  show do
+    panel "Proposer Details" do
+      attributes_table_for proposer do
+        row("Full Name") { proposer.full_name }
+        row("Email") { proposer.email }
+        row("Additional Information") { proposer.additional_information }
+      end
+    end
   end
 
   filter :full_name, label: "Name"

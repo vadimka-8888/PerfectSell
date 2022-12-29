@@ -13,7 +13,24 @@ ActiveAdmin.register Offer do
     actions
   end
 
+  show do
+    panel "Offer Details" do
+      attributes_table_for offer do
+        row("Name") { offer.name }
+        row("Measure") { offer.measure }
+        row("Price") { offer.price }
+        row("Description") { offer.description }
+        row("Activeness") { offer.is_active }
+        row("Photo") { offer.photo }
+      end
+    end
+    active_admin_comments
+  end
+
   filter :name
   filter :price
   filter :is_active, label: "Activeness", as: :check_boxes
+
+  scope :all, default: true
+  scope :only_items
 end
