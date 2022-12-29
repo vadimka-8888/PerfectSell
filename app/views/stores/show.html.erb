@@ -1,8 +1,4 @@
-
-<!DOCTYPE HTML>
-<html>
 <head>
-  <title>Goods</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <%= stylesheet_link_tag 'main.css' %>
@@ -27,42 +23,31 @@
     </script>
     <div class="topnav" id="myTopnav">
       <a href="/stores" class="active">Магазины</a>
-      <a href="/offers">Предложенные товары</a>
+      <a href="/offers">Все товары</a>
       <a href="/account">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
 
-    <!-- Main -->
     <section id="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <!-- Goods -->
-            <section>
-              <div class="container3">
-                <div><h1><%=@store.name %></h1></div>
-              </div>
-              <div id=container3>
-                <div id="container3">
+      <div class="container2">
+
+                  <div class="container">
+                    <h1><%=@store.name %></h1>
                   <h2>Данные о магазине</h2>
                   <p class="major"><%=@store.description %></p>
                   <h2>Контакты</h2>
                   <p><%=@store.store_email %></p>
-                </div>
-                <div class="image">
-                  <div id="img_shop">
-                    <img src="/assets/shop3.jpg" alt="" />
                   </div>
-                </div>
-              </div>
-            </section>
+        <div class="container">
+          <div class="image">
+              <img src="/assets/shop3.jpg" alt="" />
           </div>
         </div>
       </div>
     </section>
+
   </section>
 </section>
 </body>
-</html>

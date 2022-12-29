@@ -1,7 +1,4 @@
-<!DOCTYPE HTML>
-<html>
 <head>
-  <title>Shops</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <%= stylesheet_link_tag 'main.css' %>
@@ -27,7 +24,7 @@
     </script>
     <div class="topnav" id="myTopnav">
       <a href="/stores">Магазины</a>
-      <a href="/offers" class="active">Предложенные товары</a>
+      <a href="/offers" class="active">Все товары</a>
       <a href="/account">Аккаунт</a>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -56,7 +53,7 @@
                   <div class="col-4 col-6-medium col-12-small">
 
                     <section class="box">
-                      <a href="#" class="image featured"><img src="/assets/shop3.jpg" alt="" /></a>
+                      <a href="offers/<%=offer.id%>" class="image featured"><img src="/assets/shop3.jpg" alt="" /></a>
                       <header>
                         <h3><%=offer.name %></h3>
                       </header>
@@ -79,4 +76,3 @@
   </section>
 </section>
 </body>
-</html>
