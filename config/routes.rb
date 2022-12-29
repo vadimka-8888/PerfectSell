@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   get '/goods', to: 'goods#goods'
   get '/page_shop', to: 'page_shop#page_shop'
+  get '/account/show_acc', to: 'account#show_acc'
+  get '/account/show_cons', to: 'account#show_cons'
   resources :goods
   resources :stores
   resources :offers do
