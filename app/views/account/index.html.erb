@@ -36,26 +36,33 @@
         <div class="row">
           <div class="col-12">
             <!-- Shops -->
-            <section>
+            <header>
+              <div class="container">
               <%if current_user.present? %>
-                <header class="major">
-                  <h2>Имя пользователя: </h2>
-                  <h2><%= "#{current_user.id}" %></h2>
 
-                </header>
-                <h2>Тип аккаунта: </h2>
-                <h2><%= "#{session[:role]}" %></h2>
-                <%=button_to 'Выйти', session_path, method: :delete %>
-                <%if session[:role]=="store" %>
-                <h2>Товары на рассмотрении</h2>
-                <ul class="actions">
-                  <li><a href="/account/show_cons" class="button">Показать товары</a></li>
-                </ul>
-                <h2>Принятые товары</h2>
-                <ul class="actions">
-                  <li><a href="/account/show_acc" class="button">Показать товары</a></li>
-                </ul>
-                  <%else%>
+                  <% if session[:role]=="store" %>
+                  <header class="major">
+                    <h2>Представитель магазина</h2>
+                  </header>
+                  <h2>"<%=current_user.name %>"</h2>
+                  <h2>Контакты</h2>
+                  <p><%=current_user.store_email %></p>
+                  <h2>Адрес</h2>
+                  <p><%=current_user.address %></p>
+                    <h2>Товары на рассмотрении</h2>
+                    <ul class="actions">
+                      <li><a href="/account/show_cons" class="button">Показать товары</a></li>
+                    </ul>
+                    <h2>Принятые товары</h2>
+                    <ul class="actions">
+                      <li><a href="/account/show_acc" class="button">Показать товары</a></li>
+                    </ul>
+                    <%=button_to 'Выйти', session_path, method: :delete %>
+                  <%else %>
+                  <header class="major">
+                    <h2>Представитель товара</h2>
+                  </header>
+                  <h2>"<%=current_user.full_name %>"</h2>
                   <header class="major">
                     <div class="container3">
                       <div><h2>Мои товары</h2></div>
@@ -81,30 +88,35 @@
                       </div>
                     <% end %>
                   </div>
-                <%end%>
-
+                    <%=button_to 'Выйти', session_path, method: :delete %>
+                  <%end %>
 
               <%else %>
+
               <header class="major">
               <div class="container3">
                 <div><h2>Вход на сайт</h2></div>
                 <a href="/session/new" class="button">Вход</a>
               </div>
               </header>
+
               <header class="major">
                 <div class="container3">
                   <div><h2>Регистрация представителя магазина</h2></div>
                   <a href="/stores/new" class="button">Регистрация</a>
                 </div>
               </header>
+
               <header class="major">
                 <div class="container3">
                   <div><h2>Регистрация представителя товара</h2></div>
                   <a href="/proposers/new" class="button">Регистрация</a>
                 </div>
               </header>
-                <%end %>
-            </section>
+
+              <%end %>
+              </div>
+            </header>
           </div>
         </div>
       </div>

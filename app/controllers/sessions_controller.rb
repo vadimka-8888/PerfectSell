@@ -6,9 +6,6 @@ class SessionsController < ApplicationController
   def create
     user_params = params.require(:session)
     proposer = Proposer.find_by(email: user_params[:email])
-    if !proposer.present?
-      store = Store.find_by(store_email: user_params[:email])
-    end
     store = Store.find_by(store_email: user_params[:email])
     if proposer.present? and proposer.password==user_params[:password]
       session[:user_id] = proposer.id
@@ -27,7 +24,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:user_id)
+    session.delete(:email)
     redirect_to '/stores', notice: 'Вы вышли из аккаунта'
   end
 end

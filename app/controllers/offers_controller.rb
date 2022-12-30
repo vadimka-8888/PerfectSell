@@ -29,13 +29,15 @@ class OffersController < ApplicationController
   def change_status
     if session[:role]=="store"
       #сделки с данным товаром
+
       @all_bargains = Bargain.select{|b| b.offer_id==params[:id]}
       @this_bargain_exists = @all_bargains.select{|b| b.store_id = current_user.id}
       if @this_bargain_exists.present?
+        @offer = Offer.find(params[:id])
         @barg = @this_bargain_exists[0]
         @barg.status = "Accepted"
         @barg.save
-        redirect_to @offer
+        redirect_to '/account'
       else
         @offer = Offer.find(params[:id])
         @bargain = Bargain.new
@@ -43,7 +45,7 @@ class OffersController < ApplicationController
         @bargain.offer_id = params[:id]
         @bargain.status="Considering"
         @bargain.save
-        redirect_to @offer
+        redirect_to '/account'
       end
     end
   end

@@ -37,17 +37,17 @@
           <h2>Данные о товаре</h2>
           <p class="major"><%=@offer.description %></p>
           <h2>Стоимость</h2>
-          <p><%=@offer.price %></p>
+          <p><%=@offer.price %> р. за <%=@offer.measure %></p>
           <%if session[:role]=="store" %>
             <% unless current_user.bargains.find_by(offer: @offer).present? %>
               <ul class="actions">
                 <li><a href="/offers/<%= @offer.id  %>/bargains/new" class="button">Взять товар на рассмотрение</a>
                 </li>
               </ul>
-            <%else if current_user.bargains.find_by(offer: @offer).status="Considering"%>
+            <%else if current_user.bargains.find_by(offer: @offer).status=="Considering"%>
                 <h2>Товар на рассмотрении</h2>
                 <ul class="actions">
-                  <li><a href="offers/<%= @offer.id  %>/edit" class="button">Принять товар в магазин</a>
+                  <li><a href="/offers/<%= @offer.id  %>/bargains/<%=current_user.bargains.find_by(offer: @offer).id %>/edit" class="button">Принять товар в магазин</a>
                   </li>
                 </ul>
                 <ul class="actions">

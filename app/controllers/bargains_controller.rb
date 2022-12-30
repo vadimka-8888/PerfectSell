@@ -12,7 +12,7 @@ class BargainsController < ApplicationController
   def new
     @bargain = @store.bargains.create(:status=>"Considering", :offer => @offer,:date => Date.today)
     @bargain.save
-    redirect_to '/offers'
+    redirect_to @offer
   end
   def create
 
@@ -21,21 +21,19 @@ class BargainsController < ApplicationController
   def destroy
       @bargain = Bargain.find(params[:id])
       @bargain.destroy
-      redirect_to '/offers'
+      redirect_to @offer
   end
 
-  def update
+  def edit
     if session[:role]=="store"
       #сделки с данным товаром
-      @all_bargains = Bargain.select{|b| b.offer_id==params[:id]}
-      @this_bargain_exists = @all_bargains.select{|b| b.store_id = current_user.id}
-      if @this_bargain_exists.present?
-        @barg = @this_bargain_exists[0]
-        @barg.status = "Accepted"
-        @barg.save
+      @bargain = @store.bargains.find_by(id:params[:id])
+      if @bargain.status=="Considering"
+        @bargain.status = "Accepted"
+        @bargain.save
         redirect_to @offer
       else
-        @offer = Offer.find(params[:id])
+        @offer = Offer.find(params[:offer_id])
         @bargain = Bargain.new
         @bargain.store_id = current_user.id
         @bargain.offer_id = params[:id]
