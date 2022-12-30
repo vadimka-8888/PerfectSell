@@ -7,4 +7,15 @@ class TestController < ApplicationController
     @all_offers = Offer.all
     @all_stores = Store.all
   end
+
+  def test2
+    @shop = Store.create(store_params)
+    @shop.save
+    puts store_params
+    redirect_to "/test"
+  end
+
+  private def store_params
+    params.require(:store).permit(:name, :address, :description, :store_email, :store_password);
+  end
 end

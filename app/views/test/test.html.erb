@@ -1,24 +1,136 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Общая информация</title>
+    <style>
+      td {
+          width: 180px;
+          height: 30px;
+          border: solid 3px darkred;
+          text-align: center;
+      }
+      ul.panel {
+          margin-left: 0px;
+          padding-left: 0px;
+          list-style: none;
+      }
+      .panel li {
+          float: left;
+      }
+      ul.panel a {
+          display: block;
+          width: 8em;
+          height: 40px;
+          border: #F9DBBD ridge 2px;
+          text-align: center;
+          text-decoration: none;
+          padding-top: 10px;
+      }
+      ul.panel a:hover {
+          background-color: moccasin;
+      }
+      details sumary::-webkit-details-marker {
+          display: none;
+      }
+      details > summary {
+          list-style: none;
+      }
+      details summary:before {
+          content: '\7e';
+          margin-right: 3px;
+          margin-left: 3px;
+      }
+      details[open] summary:before {
+          content: '\2d';
+          margin-right: 3px;
+          margin-left: 3px;
+      }
+      #add_store {
+          margin-top: 20px;
+      }
+      #td_form {
+          border: none 0px;
+      }
+    </style>
 </head>
 <body>
-    <h3>Тестовая страница</h3>
-    <p>Пользователи сайта:</p>
-    <%- @all_people.each do |person| %>
-        <li><%= "пользователь: #{person.full_name}" %></li>
-    <% end %>
-    <p>Все предложения на сайте:</p>
-    <%- @all_offers.each do |off| %>
-        <li><%= "товар: #{off.name}, продаётся по цене #{off.price} за #{off.measure}" %></li>
-    <% end %>
-    <p>Доступные магазины:</p>
-    <%- @all_stores.each do |store| %>
-        <li>
-          <%= "#{store.name} находится по адресу #{store.address}. " %>
-          <%= store.description %>
-        </li>
-    <% end %>
-
+    <nav style="float: none;">
+      <ul class="panel">
+        <li><a href="#">Магазины</a></li>
+        <li><a href="#">Предложения</a></li>
+        <li><a href="#">Пользователи</a></li>
+      </ul>
+    </nav>
+    <div style="clear: both;">
+      <h2 align="center" style="padding-top: 20px; padding-bottom: 2px;">Информация о базе данных</h2>
+    </div>
+    <aside id="add_store" style="float:right; width:40%;">
+      <h3>Добавить новый магазин</h3>
+      <form accept-charset="UTF-8" action="/test2" method="post">
+        <table>
+          <tr>
+            <td id="td_form">Название магазина</td>
+            <td id="td_form"><input type="text" name="store[name]" value="" /></td>
+          </tr>
+          <tr>
+            <td id="td_form">Адрес</td>
+            <td id="td_form"><input type="text" name="store[address]" value="" /></td>
+          </tr>
+          <tr>
+            <td id="td_form">Описание</td>
+            <td id="td_form"><input type="text" name="store[description]" value="" /></td>
+          </tr>
+          <tr>
+            <td id="td_form">E-mail</td>
+            <td id="td_form"><input type="text" name="store[store_email]" value="" /></td>
+          </tr>
+          <tr>
+            <td id="td_form">Пароль</td>
+            <td id="td_form"><input type="password" name="store[store_password]" value="" /></td>
+          </tr>
+        </table>
+        <div>
+          <input type="submit" name="commit" value="OK" />
+        </div>
+      </form>
+    </aside>
+    <details>
+      <summary>Пользователи</summary>
+      <ul>
+      <%- @all_people.each do |person| %>
+          <li><%= "пользователь: #{person.full_name}" %></li>
+      <% end %>
+      </ul>
+    </details>
+    <table>
+      <caption>Все предложения на сайте</caption>
+      <thead>
+        <tr>
+          <td>ТОВАР</td><td>ЦЕНА</td><td>ЕДИНИЦА ИЗМ.</td>
+        </tr>
+      </thead>
+      <%- @all_offers.each do |off| %>
+        <tr>
+          <td><%= off.name %></td>
+          <td><%= off.price %></td>
+          <td><%= off.measure %></td>
+        </tr>
+      <% end %>
+    </table>
+    <p></p>
+    <table>
+      <caption>Магазины</caption>
+      <thead>
+        <tr>
+          <td>НАЗВАНИЕ</td><td>АДРЕС</td><td>ОПИСАНИЕ</td>
+        </tr>
+      </thead>
+      <%- @all_stores.each do |store| %>
+        <tr>
+          <td><%= store.name %></td>
+          <td><%= store.address %></td>
+          <td><%= store.description %></td>
+        </tr>
+      <% end %>
+    </table>
 </body>

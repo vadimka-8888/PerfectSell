@@ -10,4 +10,6 @@ class Offer < ApplicationRecord
   def correct_price
     price >= 0
   end
+
+  scope :only_items, -> { where(measure: 'шт') }
 end

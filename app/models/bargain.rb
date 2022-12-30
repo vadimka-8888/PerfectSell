@@ -10,4 +10,6 @@ class Bargain < ApplicationRecord
   def correct_status
     status == "Considering" || status == "Accepted"
   end
+
+  scope :most_recent, -> { where("date > ?", 2.weeks.ago) }
 end
