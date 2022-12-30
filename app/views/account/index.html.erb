@@ -58,7 +58,7 @@
                       <li><a href="/account/show_acc" class="button">Показать товары</a></li>
                     </ul>
                     <%=button_to 'Выйти', session_path, method: :delete %>
-                  <%else %>
+                  <%elsif session[:role]=="proposer" %>
                   <header class="major">
                     <h2>Представитель товара</h2>
                   </header>
@@ -99,6 +99,12 @@
                 <a href="/session/new" class="button">Вход</a>
               </div>
               </header>
+                  <header class="major">
+                    <div class="container3">
+                      <div><h2>Вход как администратор</h2></div>
+                      <a href="/session/new" class="button">Вход</a>
+                    </div>
+                  </header>
 
               <header class="major">
                 <div class="container3">

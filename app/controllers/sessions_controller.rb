@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     user_params = params.require(:session)
     proposer = Proposer.find_by(email: user_params[:email])
     store = Store.find_by(store_email: user_params[:email])
+    admin = AdminUser.find_by(email: user_params[:email])
     if proposer.present? and proposer.password==user_params[:password]
       session[:user_id] = proposer.id
       session[:role] = "proposer"
@@ -17,7 +18,13 @@ class SessionsController < ApplicationController
       session[:role] = "store"
       session[:email] = user_params[:email]
       redirect_to '/stores', notice: 'Вы вошли на сайт как представитель магазина!'
+    elsif admin.present? and admin.password==user_params[:password]
+      session[:user_id] = admin.id
+      session[:role] = "admin"
+      session[:email] = user_params[:email]
+      redirect_to '/admin'
     else
+
       flash[:alert] = 'Неправильные данные'
       render :new
     end
